@@ -30,6 +30,45 @@ function isValid(str) {
   return ((y - 1) - x === 0 || y - 1 === 0) ? YES : NO;
 }
 
+const sherlockValidString = (str) => {
+  const chars = str.split('') // convert to array
+  // const charMap = {}
+  let cMap = new Map()
+  chars.forEach((char) => {
+    const oldCount = cMap.get(char)
+    cMap.set(char, oldCount ? oldCount + 1 : 1)
+  })
+
+  cMap = new Map([ ...cMap.entries() ].sort((a, b) => b - a))
+  console.log(cMap)
+
+  // cMap.forEach((value, key) => {
+  //
+  // })
+
+  // sort largest to smallest
+  // const items = [ ...cMap.values() ].sort((a, b) => b - a)
+  // const largest = items[0]
+  // const smallest = items[items.length - 1]
+  // const countMap = { [smallest]: 0, [largest]: 0 }
+  // console.log(`largest: ${largest}, smallest: ${smallest}`)
+  //
+  // items.forEach((i) => {
+  //   if (i === largest || i === smallest) {
+  //     countMap[i]++
+  //   }
+  // })
+  //
+  // console.log(`countMap: `, countMap)
+  //
+  // // determine if all the counts are the same
+  // if (largest === smallest || largest - 1 === smallest) {
+  //   return 'YES'
+  // }
+  //
+  // return 'NO'
+}
+
 // function isValidB (str) {
 //   let countObject = counter(str);
 //   let values = Object.values(countObject).sort(function (a, b) {
@@ -60,7 +99,7 @@ function isValid(str) {
 //   return 'NO';
 // }
 
-let str = 'ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidbibaeaagaeeigffcebfbaieggabcfbiiedcabfihchdfabifahcbhagccbdfifhghcadfiadeeaheeddddiecaicbgigccageicehfdhdgafaddhffadigfhhcaedcedecafeacbdacgfgfeeibgaiffdehigebhhehiaahfidibccdcdagifgaihacihadecgifihbebffebdfbchbgigeccahgihbcbcaggebaaafgfedbfgagfediddghdgbgehhhifhgcedechahidcbchebheihaadbbbiaiccededchdagfhccfdefigfibifabeiaccghcegfbcghaefifbachebaacbhbfgfddeceababbacgffbagidebeadfihaefefegbghgddbbgddeehgfbhafbccidebgehifafgbghafacgfdccgifdcbbbidfifhdaibgigebigaedeaaiadegfefbhacgddhchgcbgcaeaieiegiffchbgbebgbehbbfcebciiagacaiechdigbgbghefcahgbhfibhedaeeiffebdiabcifgccdefabccdghehfibfiifdaicfedagahhdcbhbicdgibgcedieihcichadgchgbdcdagaihebbabhibcihicadgadfcihdheefbhffiageddhgahaidfdhhdbgciiaciegchiiebfbcbhaeagccfhbfhaddagnfieihghfbaggiffbbfbecgaiiidccdceadbbdfgigibgcgchafccdchgifdeieicbaididhfcfdedbhaadedfageigfdehgcdaecaebebebfcieaecfagfdieaefdiedbcadchabhebgehiidfcgahcdhcdhgchhiiheffiifeegcfdgbdeffhgeghdfhbfbifgidcafbfcd';
+// let str = 'ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidbibaeaagaeeigffcebfbaieggabcfbiiedcabfihchdfabifahcbhagccbdfifhghcadfiadeeaheeddddiecaicbgigccageicehfdhdgafaddhffadigfhhcaedcedecafeacbdacgfgfeeibgaiffdehigebhhehiaahfidibccdcdagifgaihacihadecgifihbebffebdfbchbgigeccahgihbcbcaggebaaafgfedbfgagfediddghdgbgehhhifhgcedechahidcbchebheihaadbbbiaiccededchdagfhccfdefigfibifabeiaccghcegfbcghaefifbachebaacbhbfgfddeceababbacgffbagidebeadfihaefefegbghgddbbgddeehgfbhafbccidebgehifafgbghafacgfdccgifdcbbbidfifhdaibgigebigaedeaaiadegfefbhacgddhchgcbgcaeaieiegiffchbgbebgbehbbfcebciiagacaiechdigbgbghefcahgbhfibhedaeeiffebdiabcifgccdefabccdghehfibfiifdaicfedagahhdcbhbicdgibgcedieihcichadgchgbdcdagaihebbabhibcihicadgadfcihdheefbhffiageddhgahaidfdhhdbgciiaciegchiiebfbcbhaeagccfhbfhaddagnfieihghfbaggiffbbfbecgaiiidccdceadbbdfgigibgcgchafccdchgifdeieicbaididhfcfdedbhaadedfageigfdehgcdaecaebebebfcieaecfagfdieaefdiedbcadchabhebgehiidfcgahcdhcdhgchhiiheffiifeegcfdgbdeffhgeghdfhbfbifgidcafbfcd';
 // expected: YES
 
 // let str = 'aabbc';
@@ -75,7 +114,7 @@ let str = 'ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidb
 // let str = 'aaaabbcc';
 // expected: 'NO'
 
-// let str = 'aabbcd';
+let str = 'aabbcd';
 // expected: NO
 
 // let str = 'aabbccddeefghi';
@@ -83,4 +122,6 @@ let str = 'ibfdgaeadiaefgbhbdghhhbgdfgeiccbiehhfcggchgghadhdhagfbahhddgghbdehidb
 
 // let str = 'xxxaabbccrry';
 //expected: NO
-console.log(isValid(str));
+// console.log(isValid(str));
+
+console.log(sherlockValidString(str))
