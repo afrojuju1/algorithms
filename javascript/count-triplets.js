@@ -1,3 +1,6 @@
+
+/*
+version 1
 function countTriplets(arr, r) {
   let triplets = [];
   // looking for triplets
@@ -55,6 +58,32 @@ function countTriplets(arr, r) {
   }
 
   console.log('triplets\n', triplets)
+} */
+
+function countTriplets(arr, r) {
+  // keep track of the indexes
+  const itemMap = {}
+  // build lookup map
+  for (let i = 0; i < arr.length; i++) {
+    const item = arr[i]
+    if (itemMap[item]) {
+      // push the new index
+      itemMap[item].push(i)
+    } else {
+      itemMap[item] = [i]
+    }
+  }
+
+  for (let i = 0; i < arr.length; i++) {
+    const valA = arr[i] // * r
+    const valB = valA * r
+    const valC = valB * r
+    console.log(`i: ${i}, valA: ${valA}, valB: ${valB}, valC: ${valC}`)
+    // verify numbers are divisible by r
+    console.log(`div: ${valA % r}, ${valC % r}, ${valB % r}`)
+  }
+
+  console.log('itemMap: ', itemMap)
 }
 
 // let arr = [1, 4, 16, 64];
@@ -62,5 +91,10 @@ function countTriplets(arr, r) {
 
 let arr = [1, 5, 5, 25, 125];
 let r = 5;
+// output = 4
+
+// let arr = [1, 3, 9, 9, 27, 81];
+// let r = 3;
+// output = 6;
 
 countTriplets(arr, r);
