@@ -68,7 +68,13 @@ const caseB = {
   result: 'GTAB',
 }
 
-console.log(LCS(caseA.s1, caseA.s2))
+const caseC = {
+  s1: 'abcde',
+  s2: 'ace',
+  result: 'ADH',
+}
+
+console.log(LCS(caseC.s1, caseC.s2))
 // console.log(LCS(caseB.s1, caseB.s2))
 
 // console.log(LCS(s1, s2));
