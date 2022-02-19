@@ -1,6 +1,7 @@
 /*
 A string is said to be a special string if either of two conditions is met:
 
+- https://www.hackerrank.com/challenges/special-palindrome-again
 - All of the characters are the same, e.g. aaa.
 - All characters except the middle one are the same, e.g. aadaa.
  */
@@ -85,6 +86,31 @@ const isSameChars = (s) => {
   return true
 }
 
+/* -------------- */
+const specialStringV2 = (s) => {
+  const stringLength = s.length()
+  let ans = stringLength
+
+  // first case
+  for (let i = 0; i < stringLength; i++) {
+    let repeat = 0
+    while (i+1 < stringLength && s.charAt(i) === s.charAt(i+1)) {
+      repeat++
+      i++
+    }
+
+    ans += (repeat + (repeat + 1)) / 2
+
+    let pointer = 1
+    while (i - pointer >= 0 || i + pointer < stringLength && s.charAt(i + pointer) === s.charAt(i - pointer)) {
+      ans++
+      pointer++
+    }
+  }
+
+  return ans
+}
+
 // const chars = 'asasd'
 // const expected = 7
 
@@ -94,5 +120,6 @@ const isSameChars = (s) => {
 const chars = 'aaaa'
 const expected = 10
 
-specialString(chars)
+// specialString(chars)
+specialStringV2(chars)
 
