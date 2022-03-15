@@ -58,6 +58,8 @@ const hasCommonAncestor = (pairs, x, y) => {
     childToParent[child].push(parent)
   }
 
+  // convert to nodes and search?
+
   const xParents = childToParent[x]
   const yParents = childToParent[y]
 
